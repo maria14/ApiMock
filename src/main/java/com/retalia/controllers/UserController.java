@@ -19,7 +19,7 @@ public class UserController {
 	
 	@RequestMapping(value="/me",method=RequestMethod.GET,produces=MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public User getAllCustomers(){
+	public User getMe(){
 		return UserMock.getMe();
 	}
 	

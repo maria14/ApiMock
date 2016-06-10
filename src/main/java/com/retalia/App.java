@@ -42,4 +42,19 @@ public class App {
 	public static Challenge getChallenge(int challengeID) {
 		return challenges.get(challengeID);
 	}
+
+	public static List<UserChallenge> getUserChallengesChallengesByStatus(int status) {
+		return searchByStatus(status);
+	}
+
+	private static List<UserChallenge> searchByStatus(int status) {
+		List<UserChallenge> userChallengesResult= new ArrayList<UserChallenge>();
+		UserChallenge userChallenge;
+		for (int i=0;i<userChallenges.size();i++){
+			userChallenge=userChallenges.get(i);
+			if (userChallenge.getStatus()==status) userChallengesResult.add(userChallenge);
+		}
+		return userChallengesResult;
+		
+	}
 }
