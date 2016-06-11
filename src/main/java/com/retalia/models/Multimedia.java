@@ -13,7 +13,6 @@ public class Multimedia  {
 
 public Multimedia(String iD, String link, String duration,String format,
 		int type, User owner) {
-	super();
 	ID = iD;
 	Link = link;
 	Duration = duration;

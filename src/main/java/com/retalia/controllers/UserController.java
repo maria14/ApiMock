@@ -7,8 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.retalia.App;
 import com.retalia.mocks.UserMock;
 import com.retalia.models.User;
 
@@ -36,5 +38,11 @@ public class UserController {
 		return UserMock.getUser(id);
 		
 	}
+	@RequestMapping(value="/gcm/register",method=RequestMethod.POST)
+	@ResponseBody
+	public void removeDislikeUserChallenge(@RequestParam(value="GcmID")final String GcmID){
+		//do nothing
+	}
+	
 
 }
