@@ -1,6 +1,9 @@
 package com.retalia.controllers;
 
+import java.util.List;
+
 import org.hibernate.Session;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,14 +20,19 @@ import com.retalia.models.User;
 @RequestMapping("/facebook")
 public class LoginController {
 	
+
+	
 	@RequestMapping(value="/register",method=RequestMethod.POST)
 	@ResponseBody
 	public User registerUSer(@RequestBody final String token){
-		Session session= HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
+		/*Session session= HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
 		session.beginTransaction();
-		session.save(UserMock.getMe());
+		List<User> friends= UserMock.getMyFriends();
+		for (int i=0;i<friends.size();i++){
+		session.save(friends.get(i));
+		}
 		session.getTransaction().commit();
-		HibernateUtil.getSessionFactory().close();
+		HibernateUtil.getSessionAnnotationFactory().close();*/
 		return UserMock.getMe();
 	}
 	

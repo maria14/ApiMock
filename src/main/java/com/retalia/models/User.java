@@ -25,7 +25,7 @@ public class User {
 	@Column(name="Email", nullable=false, length=45)
     private String Email;
 	
-	@Column(name="Photo", nullable=true, length=200)
+	@Column(name="Photo", nullable=true, length=310)
     private String Photo;
 	
 	@Column(name="Likes", nullable=true, length=20)
@@ -48,6 +48,18 @@ public class User {
     	this.Likes=Likes;
     	this.Dislikes=Dislikes;
     	this.RegistredDate=RegistredDate;
+    }
+    
+    public User(){
+    	this.ID="";
+    	this.FacebookID="";
+    	this.Type=0;
+    	this.Name="";
+    	this.Email="";
+    	this.Photo="";
+    	this.Likes=0;
+    	this.Dislikes=0;
+    	this.RegistredDate="";
     }
 	public String getID() {
 		return ID;
