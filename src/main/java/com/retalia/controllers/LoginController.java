@@ -1,5 +1,6 @@
 package com.retalia.controllers;
 
+import org.hibernate.Session;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.retalia.mocks.UserMock;
 import com.retalia.models.methods.LoginModel;
+import com.retalia.utils.HibernateUtil;
 import com.retalia.models.User;
 
 @Controller
@@ -18,6 +20,11 @@ public class LoginController {
 	@RequestMapping(value="/register",method=RequestMethod.POST)
 	@ResponseBody
 	public User registerUSer(@RequestBody final String token){
+		Session session= HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
+		session.beginTransaction();
+		session.save(UserMock.getMe());
+		session.getTransaction().commit();
+		HibernateUtil.getSessionFactory().close();
 		return UserMock.getMe();
 	}
 	

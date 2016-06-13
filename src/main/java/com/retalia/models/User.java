@@ -1,18 +1,40 @@
 package com.retalia.models;
 
-import java.sql.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-
+@Entity
+@Table(name="User")
 public class User {
 
+	@Id
+	@Column(name="ID", nullable=false, length=45)
     private String ID;
+	
+	@Column(name="FacebookID", nullable=false, length=45)
     private String FacebookID;
+	
+	@Column(name="Type", nullable=false, length=11)
     private int Type;
+	
+	@Column(name="Name", nullable=false, length=45)
     private String Name;
+	
+	@Column(name="Email", nullable=false, length=45)
     private String Email;
+	
+	@Column(name="Photo", nullable=true, length=200)
     private String Photo;
+	
+	@Column(name="Likes", nullable=true, length=20)
     private long Likes;
+	
+	@Column(name="Dislikes", nullable=true, length=20)
     private long Dislikes;
+	
+	@Column(name="RegistredDate", nullable=true,length=50)
     private String RegistredDate;
 
     

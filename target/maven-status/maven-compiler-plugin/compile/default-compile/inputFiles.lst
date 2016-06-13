@@ -1,22 +1,22 @@
-C:\Users\MariaDiaz\Documents\GitHub\ApiMock\src\main\java\com\retalia\mocks\UserMock.java
-C:\Users\MariaDiaz\Documents\GitHub\ApiMock\src\main\java\com\retalia\models\Challenge.java
-C:\Users\MariaDiaz\Documents\GitHub\ApiMock\src\main\java\com\retalia\models\Page.java
-C:\Users\MariaDiaz\Documents\GitHub\ApiMock\src\main\java\com\retalia\controllers\UserController.java
-C:\Users\MariaDiaz\Documents\GitHub\ApiMock\src\main\java\com\retalia\types\SearchType.java
-C:\Users\MariaDiaz\Documents\GitHub\ApiMock\src\main\java\com\retalia\App.java
-C:\Users\MariaDiaz\Documents\GitHub\ApiMock\src\main\java\com\retalia\controllers\LoginController.java
-C:\Users\MariaDiaz\Documents\GitHub\ApiMock\src\main\java\com\retalia\types\StatusType.java
-C:\Users\MariaDiaz\Documents\GitHub\ApiMock\src\main\java\com\retalia\models\User.java
-C:\Users\MariaDiaz\Documents\GitHub\ApiMock\src\main\java\com\retalia\controllers\ReportController.java
-C:\Users\MariaDiaz\Documents\GitHub\ApiMock\src\main\java\com\retalia\models\FriendsPage.java
-C:\Users\MariaDiaz\Documents\GitHub\ApiMock\src\main\java\com\retalia\mocks\MultimediaMock.java
-C:\Users\MariaDiaz\Documents\GitHub\ApiMock\src\main\java\com\retalia\controllers\DeviceController.java
-C:\Users\MariaDiaz\Documents\GitHub\ApiMock\src\main\java\com\retalia\controllers\ChallengesController.java
-C:\Users\MariaDiaz\Documents\GitHub\ApiMock\src\main\java\com\retalia\models\Multimedia.java
-C:\Users\MariaDiaz\Documents\GitHub\ApiMock\src\main\java\com\retalia\controllers\UserChallengeController.java
-C:\Users\MariaDiaz\Documents\GitHub\ApiMock\src\main\java\com\retalia\models\methods\LoginModel.java
-C:\Users\MariaDiaz\Documents\GitHub\ApiMock\src\main\java\com\retalia\controllers\VoteController.java
-C:\Users\MariaDiaz\Documents\GitHub\ApiMock\src\main\java\com\retalia\models\UserChallenge.java
-C:\Users\MariaDiaz\Documents\GitHub\ApiMock\src\main\java\com\retalia\controllers\SearchController.java
-C:\Users\MariaDiaz\Documents\GitHub\ApiMock\src\main\java\com\retalia\models\Device.java
-C:\Users\MariaDiaz\Documents\GitHub\ApiMock\src\main\java\com\retalia\models\Vote.java
+C:\Users\consultant\workspaceSpring\RetaliaAPI\ApiMock- hibernate\ApiMock\src\main\java\com\retalia\controllers\UserChallengeController.java
+C:\Users\consultant\workspaceSpring\RetaliaAPI\ApiMock- hibernate\ApiMock\src\main\java\com\retalia\controllers\LoginController.java
+C:\Users\consultant\workspaceSpring\RetaliaAPI\ApiMock- hibernate\ApiMock\src\main\java\com\retalia\App.java
+C:\Users\consultant\workspaceSpring\RetaliaAPI\ApiMock- hibernate\ApiMock\src\main\java\com\retalia\models\FriendsPage.java
+C:\Users\consultant\workspaceSpring\RetaliaAPI\ApiMock- hibernate\ApiMock\src\main\java\com\retalia\types\SearchType.java
+C:\Users\consultant\workspaceSpring\RetaliaAPI\ApiMock- hibernate\ApiMock\src\main\java\com\retalia\controllers\VoteController.java
+C:\Users\consultant\workspaceSpring\RetaliaAPI\ApiMock- hibernate\ApiMock\src\main\java\com\retalia\models\UserChallenge.java
+C:\Users\consultant\workspaceSpring\RetaliaAPI\ApiMock- hibernate\ApiMock\src\main\java\com\retalia\mocks\MultimediaMock.java
+C:\Users\consultant\workspaceSpring\RetaliaAPI\ApiMock- hibernate\ApiMock\src\main\java\com\retalia\models\User.java
+C:\Users\consultant\workspaceSpring\RetaliaAPI\ApiMock- hibernate\ApiMock\src\main\java\com\retalia\controllers\DeviceController.java
+C:\Users\consultant\workspaceSpring\RetaliaAPI\ApiMock- hibernate\ApiMock\src\main\java\com\retalia\models\Device.java
+C:\Users\consultant\workspaceSpring\RetaliaAPI\ApiMock- hibernate\ApiMock\src\main\java\com\retalia\models\methods\LoginModel.java
+C:\Users\consultant\workspaceSpring\RetaliaAPI\ApiMock- hibernate\ApiMock\src\main\java\com\retalia\models\Multimedia.java
+C:\Users\consultant\workspaceSpring\RetaliaAPI\ApiMock- hibernate\ApiMock\src\main\java\com\retalia\types\StatusType.java
+C:\Users\consultant\workspaceSpring\RetaliaAPI\ApiMock- hibernate\ApiMock\src\main\java\com\retalia\controllers\SearchController.java
+C:\Users\consultant\workspaceSpring\RetaliaAPI\ApiMock- hibernate\ApiMock\src\main\java\com\retalia\controllers\UserController.java
+C:\Users\consultant\workspaceSpring\RetaliaAPI\ApiMock- hibernate\ApiMock\src\main\java\com\retalia\controllers\ChallengesController.java
+C:\Users\consultant\workspaceSpring\RetaliaAPI\ApiMock- hibernate\ApiMock\src\main\java\com\retalia\controllers\ReportController.java
+C:\Users\consultant\workspaceSpring\RetaliaAPI\ApiMock- hibernate\ApiMock\src\main\java\com\retalia\models\Challenge.java
+C:\Users\consultant\workspaceSpring\RetaliaAPI\ApiMock- hibernate\ApiMock\src\main\java\com\retalia\models\Vote.java
+C:\Users\consultant\workspaceSpring\RetaliaAPI\ApiMock- hibernate\ApiMock\src\main\java\com\retalia\models\Page.java
+C:\Users\consultant\workspaceSpring\RetaliaAPI\ApiMock- hibernate\ApiMock\src\main\java\com\retalia\mocks\UserMock.java
