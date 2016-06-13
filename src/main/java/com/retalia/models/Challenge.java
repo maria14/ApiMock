@@ -2,19 +2,53 @@ package com.retalia.models;
 
 import java.util.Date;
 
-public class Challenge {
-	private int ID;
-	private String Title;
-	private String Description;
-     private String CreatedDate;
-     private User Owner ;
-     private String PendingUserChallenges;
-     private String RepliedUserChallenges;
-     private String CompletedUserChallenges;
-     private String UncompletedUserChallenges;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-     public Challenge(int ID, String Title,String Description, String CreatedDate,User Owner,String PendingUserChallenges,String RepliedUserChallenges,String CompletedUserChallenges,String UncompletedUserChallenges){
-    	 this.ID=ID;
+import org.hibernate.annotations.GenericGenerator;
+
+@Entity
+@Table(name="Challenge")
+public class Challenge {
+	
+	@Id
+	@GenericGenerator(name = "ID", strategy = "increment")
+	@GeneratedValue(generator = "ID")
+	@Column(name="ID", nullable=false, length=11)
+	private int ID;
+	
+	@Column(name="Title" ,nullable=false, length=45)
+	private String Title;
+	
+	@Column(name="Description",nullable=true, length=45)
+	private String Description;
+	
+	@ManyToOne
+	@JoinColumn(name = "Owner_id", nullable = true)
+     private User Owner ;
+	
+	@Column(name="PendingUserChallenges",nullable=true, length=11)
+     private String PendingUserChallenges;
+	
+	@Column(name="RepliedUserChallenges",nullable=true, length=11)
+     private String RepliedUserChallenges;
+	
+	@Column(name="CompletedUserChallenges",nullable=true, length=11)
+     private String CompletedUserChallenges;
+	
+	@Column(name="UncompletedUserChallenges",nullable=true, length=11)
+     private String UncompletedUserChallenges;
+	
+	@Column(name="CreatedDate",nullable=true, length=45)
+    private String CreatedDate;
+
+     public Challenge(String Title,String Description, String CreatedDate,User Owner,String PendingUserChallenges,String RepliedUserChallenges,String CompletedUserChallenges,String UncompletedUserChallenges){
     	 this.Title=Title;
     	 this.Description=Description;
     	 this.CreatedDate=CreatedDate;
@@ -24,6 +58,10 @@ public class Challenge {
     	 this.CompletedUserChallenges=CompletedUserChallenges;
     	 this.UncompletedUserChallenges=UncompletedUserChallenges;
     	 
+     }
+     
+     public Challenge(){
+    	 super();
      }
 
 	public int getID() {

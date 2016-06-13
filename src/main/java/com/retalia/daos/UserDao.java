@@ -9,7 +9,7 @@ import com.retalia.models.User;
 import com.retalia.utils.HibernateUtil;
 
 @Repository("userDao")
-public class UserDao extends GenericDao {
+public class UserDao extends GenericDao  {
 
 	public User getMe() {
 		return (User) this.get(User.class, "0");

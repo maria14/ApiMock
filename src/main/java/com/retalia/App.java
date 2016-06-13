@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.MultipartConfigElement;
 
+import org.hibernate.Session;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.context.embedded.MultipartConfigFactory;
@@ -17,6 +18,7 @@ import com.retalia.mocks.MultimediaMock;
 import com.retalia.models.Challenge;
 import com.retalia.models.User;
 import com.retalia.models.UserChallenge;
+import com.retalia.utils.HibernateUtil;
 
 
 @EnableAutoConfiguration
@@ -28,6 +30,7 @@ public class App {
 	private static int numMultimedia;
 	private static List<Integer> likes;
 	private static List<Integer> dislikes;
+	private static Session session;
 
     @Bean
     public MultipartConfigElement multipartConfigElement() {
@@ -42,6 +45,9 @@ public class App {
 		numMultimedia=0;
 		likes= new ArrayList<Integer>();
 		dislikes=new ArrayList<Integer>();
+		session= HibernateUtil.getSessionAnnotationFactory().getCurrentSession();	
+		
+		//session.beginTransaction();	
 		SpringApplication.run(App.class, args);
 		
 	}
@@ -176,5 +182,8 @@ public class App {
 			if(dislikes.get(i)==userChallengeID) dislikes.remove(i);
 			
 		}
+	}
+	public static Session getSession() {
+		return session;
 	}
 }

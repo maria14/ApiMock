@@ -27,22 +27,23 @@ public class UserController {
 	@RequestMapping(value="/me",method=RequestMethod.GET,produces=MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public User getMe(){
+		
 		return userService.getMe();
 	}
 	
 	@RequestMapping(value="/facebook/friends",method=RequestMethod.GET,produces=MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public List<User> getMyFriends(){
+		
 		return userService.getFriends();
-		//return UserMock.getMyFriends();
 	}
 	
 	//tengo que comprobar donde se usa porque lo mismo va con el facebookID y no con el ID como va este (getUsuario)
 	@RequestMapping(value="/facebook/{id}",method=RequestMethod.GET,produces=MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public User getUser(@PathVariable(value="id")final String id) throws Exception{
+		
 		return userService.getUserById(id);
-		//return UserMock.getUser(id);
 		
 	}
 	@RequestMapping(value="/gcm/register",method=RequestMethod.POST)

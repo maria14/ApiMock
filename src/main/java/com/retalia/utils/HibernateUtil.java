@@ -10,15 +10,9 @@ import org.hibernate.service.ServiceRegistry;
 
  
 public class HibernateUtil {
- 
-    //XML based configuration
-    private static SessionFactory sessionFactory;
      
     //Annotation based configuration
     private static SessionFactory sessionAnnotationFactory;
-     
-    //Property based configuration
-    private static SessionFactory sessionJavaConfigFactory;
  
    
  
