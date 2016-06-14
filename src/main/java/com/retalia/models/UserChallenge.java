@@ -1,33 +1,74 @@
 package com.retalia.models;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
+
+@Entity
+@Table(name="user_challenge")
 public class UserChallenge {
+	
+	@Id
+	@GenericGenerator(name = "ID", strategy = "increment")
+	@GeneratedValue(generator = "ID")
+	@Column(name="ID", nullable=false, length=11)
     private int ID;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_challenge", nullable = false)
     private Challenge Challenge;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_sender", nullable = false)	
     private User Sender;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_owner", nullable = false)
     private User Owner;
-    private Multimedia Multimedia;
+	
+	/*
+    private Multimedia Multimedia;*/
+	
+	@Column(name="status", nullable=true, length=11)
     private int  Status;
+	
+	@Column(name="SendDate", nullable=false, length=11)	
     private String SendDate;
+	
+	@Column(name="Likes", nullable=false, length=11)
     private int Likes;
+	
+	@Column(name="Dislikes", nullable=false, length=11)
     private int Dislikes;
+	
+	@Column(name="UserVote", nullable=false, length=11)
     private String UserVote;
     
 
     
-	public UserChallenge(int iD, Challenge challenge, User sender, User owner,
+	public UserChallenge(Challenge challenge, User sender, User owner,
 			Multimedia multimedia, int status, String sendDate,
 			int likes, int dislikes, String UserVote) {
-		ID = iD;
 		Challenge = challenge;
 		Sender = sender;
 		Owner = owner;
-		Multimedia = multimedia;
+		//Multimedia = multimedia;
 		Status = status;
 		SendDate = sendDate;
 		Likes = likes;
 		Dislikes = dislikes;
 		this.UserVote=UserVote;
+	}
+	
+	public UserChallenge(){
+		super();
 	}
 
 
@@ -80,7 +121,7 @@ public class UserChallenge {
 
 
 
-	public Multimedia getMultimedia() {
+	/*public Multimedia getMultimedia() {
 		return Multimedia;
 	}
 
@@ -88,7 +129,7 @@ public class UserChallenge {
 
 	public void setMultimedia(Multimedia multimedia) {
 		Multimedia = multimedia;
-	}
+	}*/
 
 
 

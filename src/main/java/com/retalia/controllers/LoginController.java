@@ -25,14 +25,6 @@ public class LoginController {
 	@RequestMapping(value="/register",method=RequestMethod.POST)
 	@ResponseBody
 	public User registerUSer(@RequestBody final String token){
-		/*Session session= HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
-		session.beginTransaction();
-		List<User> friends= UserMock.getMyFriends();
-		for (int i=0;i<friends.size();i++){
-		session.save(friends.get(i));
-		}
-		session.getTransaction().commit();
-		HibernateUtil.getSessionAnnotationFactory().close();*/
 		return UserMock.getMe();
 	}
 	

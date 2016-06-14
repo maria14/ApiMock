@@ -17,6 +17,7 @@ import com.retalia.models.Multimedia;
 import com.retalia.models.User;
 import com.retalia.models.UserChallenge;
 import com.retalia.services.ChallengeService;
+import com.retalia.services.UserChallengeService;
 import com.retalia.services.UserService;
 
 @Controller
@@ -27,27 +28,28 @@ public class ChallengesController {
 	private ChallengeService challengeService;
 	
 	@Autowired
-	private UserService userService;
+	private UserChallengeService userChallengeService;
+	
 	
 	@RequestMapping(value="/create",method=RequestMethod.POST)
 	@ResponseBody
 	public Challenge createChallenge(@RequestParam(value="Title") String title,@RequestParam(value="Description") String description,@RequestParam(value="FacebookUserIDs") String facebookUserIDs){
 		Challenge challenge=new Challenge(title,description,"16/02/2016 12:03:02",UserMock.getMe(),"1","0","0","0");
 		challengeService.createChallenge(challenge);
-		/*UserChallenge userChallenge= new UserChallenge(App.getNumNextUserChallenge(),challenge, UserMock.getMe(), UserMock.getRandomUser(),
+		UserChallenge userChallenge= new UserChallenge(challenge, UserMock.getMe(), UserMock.getRandomUser(),
 				null, 0, "16/02/2016 12:03:02",
 				0, 0, "0");
-		App.addUserChallenge(userChallenge);*/
+		userChallengeService.createUserChallenge(userChallenge);
 		return challenge;
 	}
 	
 	@RequestMapping(value="/send",method=RequestMethod.POST)
 	@ResponseBody
 	public UserChallenge sendChallenge(@RequestParam(value="ChallengeID") int ChallengeID,@RequestParam(value="FacebookUserIDs") String facebookUserIDs){
-		UserChallenge userChallenge= new UserChallenge(App.getNumNextUserChallenge(),App.getChallenge(ChallengeID), UserMock.getMe(), UserMock.getRandomUser(),
+		UserChallenge userChallenge= new UserChallenge(challengeService.getChallengeByID(ChallengeID), UserMock.getMe(), UserMock.getRandomUser(),
 				null, 0, "16/02/2016 12:03:02",
 				0, 0, "0");
-		App.addUserChallenge(userChallenge);
+		userChallengeService.createUserChallenge(userChallenge);
 		return userChallenge;
 	}
 

@@ -16,5 +16,6 @@
         <!-- Mapping with model class containing annotations -->
         <mapping class="com.retalia.models.User"/>
         <mapping class="com.retalia.models.Challenge"/>
+         <mapping class="com.retalia.models.UserChallenge"/>
     </session-factory>
 </hibernate-configuration>

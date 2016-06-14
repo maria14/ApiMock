@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,10 +42,29 @@ public class GenericDao {
 		Transaction t =session.beginTransaction();
 		session.save(obj);
 		t.commit();
-		/*session.getTransaction().commit();
-		session.beginTransaction();*/
+			
+	}
+	
+	public List<?> executeQuery( String sql){
+		Session session= HibernateUtil.getSessionAnnotationFactory().openSession();
+		Transaction t =session.beginTransaction();
+		final Query query = session.createQuery(sql);
+		return query.list();
+	}
+	
+	public void remove(Object obj){
+		Session session= HibernateUtil.getSessionAnnotationFactory().openSession();
+		Transaction t =session.beginTransaction();
+		session.delete(obj);
+		t.commit();
 		
-		
+	}
+	
+	public void update(Object obj){
+		Session session= HibernateUtil.getSessionAnnotationFactory().openSession();
+		Transaction t =session.beginTransaction();
+		session.merge(obj);
+		t.commit();
 	}
 
 }

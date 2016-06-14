@@ -131,7 +131,7 @@ public class App {
 
 	public static void addVideo(int userChallengeID) {
 		UserChallenge userChallenge=userChallenges.get(userChallengeID);
-		userChallenge.setMultimedia(MultimediaMock.getMultimedia(userChallenge.getOwner()));
+		//userChallenge.setMultimedia(MultimediaMock.getMultimedia(userChallenge.getOwner()));
 		numMultimedia++;
 		
 	}
