@@ -18,5 +18,6 @@
         <mapping class="com.retalia.models.Challenge"/>
          <mapping class="com.retalia.models.UserChallenge"/>
          <mapping class="com.retalia.models.Multimedia"/>
+          <mapping class="com.retalia.models.Vote"/>
     </session-factory>
 </hibernate-configuration>

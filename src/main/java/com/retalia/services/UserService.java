@@ -27,4 +27,9 @@ public class UserService {
 		return userDao.getUserByID(id);
 	}
 
+	public void update(User owner) {
+		userDao.update(owner);
+		
+	}
+
 }

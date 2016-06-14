@@ -116,4 +116,24 @@ public class User {
 		RegistredDate = registredDate;
 	}
 
+	public void lessDislikes() {
+		Dislikes--;
+		
+	}
+
+	public void plusLikes() {
+		Likes++;
+		
+	}
+
+	public void lessLikes() {
+		Likes--;
+		
+	}
+
+	public void plusDislikes() {
+		Dislikes++;
+		
+	}
+
 }

@@ -15,12 +15,18 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.retalia.App;
 import com.retalia.mocks.MultimediaMock;
+import com.retalia.models.Challenge;
 import com.retalia.models.Multimedia;
+import com.retalia.models.User;
 import com.retalia.models.UserChallenge;
+import com.retalia.models.Vote;
 import com.retalia.models.methods.LoginModel;
 import com.retalia.services.UserChallengeService;
+import com.retalia.services.UserService;
+import com.retalia.services.VoteService;
 import com.retalia.types.SearchType;
 import com.retalia.types.StatusType;
+import com.retalia.services.ChallengeService;
 import com.retalia.services.MultimediaService;
 
 @Controller
@@ -33,6 +39,15 @@ public class UserChallengeController {
 	@Autowired
 	private MultimediaService multimediaService;
 	
+	@Autowired
+	private ChallengeService challengeService;
+	
+	@Autowired
+	private VoteService voteService;
+	
+	@Autowired
+	private UserService userService;
+	
 	
 	@RequestMapping(value="/filter",method=RequestMethod.GET,produces=MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
@@ -44,7 +59,24 @@ public class UserChallengeController {
 	@ResponseBody
 	public void removeUserChallenge(@RequestParam(value="UserChallengeID")final int UserChallengeID){
 		UserChallenge userChallenge= userChallengeService.getUserChallengeByID(UserChallengeID);
+		Challenge challenge= challengeService.getChallengeByID(userChallenge.getChallenge().getID());
+		User owner= userChallenge.getOwner();
+		challenge.lessStatus(userChallenge.getStatus());
+		challengeService.update(challenge);
+		Vote vote= voteService.getVoteByUserChallengeID(UserChallengeID);
+		if (vote!=null){
+			if (vote.getVoterID()==0){
+				owner.lessLikes();
+			}else{
+				owner.lessDislikes();
+			}
+			userService.update(owner);
+			voteService.delete(vote);
+			
+		}
+		
 		userChallengeService.removeUserChallenge(userChallenge);
+		
 		
 	}
 	
@@ -97,8 +129,12 @@ public class UserChallengeController {
 	//other methods
 	private void changeSatus(int userChallengeID, int status) {
 		UserChallenge userChallenge= userChallengeService.getUserChallengeByID(userChallengeID);
+		Challenge challenge= userChallenge.getChallenge();
 		userChallenge.setStatus(status);
 		userChallengeService.updateUserChallenge(userChallenge);
+		challenge.lessStatus(userChallenge.getStatus());
+		challenge.plusStatus(status);
+		challengeService.update(challenge);
 		
 	}
 

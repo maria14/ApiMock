@@ -26,4 +26,9 @@ public class ChallengeService {
 	public List<Challenge> search(String query) {
 		return challengeDao.search(query);
 	}
+
+	public void update(Challenge challenge) {
+		challengeDao.update(challenge);
+		
+	}
 }

@@ -108,4 +108,98 @@ public class Challenge {
 		return UncompletedUserChallenges;
 	}
 
+	
+	public void setPendingUserChallenges(String pendingUserChallenges) {
+		PendingUserChallenges = pendingUserChallenges;
+	}
+
+	public void setRepliedUserChallenges(String repliedUserChallenges) {
+		RepliedUserChallenges = repliedUserChallenges;
+	}
+
+	public void setCompletedUserChallenges(String completedUserChallenges) {
+		CompletedUserChallenges = completedUserChallenges;
+	}
+
+	public void setUncompletedUserChallenges(String uncompletedUserChallenges) {
+		UncompletedUserChallenges = uncompletedUserChallenges;
+	}
+
+	public void plusPending() {
+		int i=Integer.parseInt(PendingUserChallenges);
+		i++;
+		this.setPendingUserChallenges(String.valueOf(i));	
+	}
+	
+	public void lessPending() {
+		int i=Integer.parseInt(PendingUserChallenges);
+		i--;
+		this.setPendingUserChallenges(String.valueOf(i));	
+	}
+	
+	public void plusReplied() {
+		int i=Integer.parseInt(RepliedUserChallenges);
+		i++;
+		this.setRepliedUserChallenges(String.valueOf(i));	
+	}
+	
+	public void lessReplied() {
+		int i=Integer.parseInt(RepliedUserChallenges);
+		i--;
+		this.setRepliedUserChallenges(String.valueOf(i));	
+	}
+	
+	public void plusUncompleted() {
+		int i=Integer.parseInt(UncompletedUserChallenges);
+		i++;
+		this.setUncompletedUserChallenges(String.valueOf(i));	
+	}
+	
+	public void lessUncompleted() {
+		int i=Integer.parseInt(UncompletedUserChallenges);
+		i--;
+		this.setUncompletedUserChallenges(String.valueOf(i));	
+	}
+	
+	public void pluscompleted() {
+		int i=Integer.parseInt(CompletedUserChallenges);
+		i++;
+		this.setCompletedUserChallenges(String.valueOf(i));	
+	}
+
+	public void lessStatus(int status) {
+		switch(status){
+		case 0: 
+			this.lessPending();
+			break;
+		case 1:
+			this.lessReplied();
+			break;
+		case 3:
+			this.lessUncompleted();
+			break;
+		}
+		
+	}
+
+	public void plusStatus(int status) {
+		switch(status){
+		case 0: 
+			this.plusPending();
+			break;
+		case 1:
+			this.plusReplied();
+			break;
+		case 2:
+			this.pluscompleted();
+			break;
+		case 3:
+			this.plusUncompleted();
+			break;
+		}
+		
+	}
+	
+	
+
 }

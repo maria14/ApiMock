@@ -190,6 +190,26 @@ public class UserChallenge {
 	public void setUserVote(String userVote) {
 		UserVote = userVote;
 	}
+
+	public void lessDislikes() {
+		Dislikes--;
+		
+	}
+
+	public void plusLikes() {
+		Likes++;
+		
+	}
+
+	public void lessLikes() {
+		Likes--;
+		
+	}
+
+	public void plusDislikes() {
+		Dislikes++;
+		
+	}
 	
 	
 

@@ -38,7 +38,7 @@ public class ChallengesController {
 		challengeService.createChallenge(challenge);
 		UserChallenge userChallenge= new UserChallenge(challenge, UserMock.getMe(), UserMock.getRandomUser(),
 				null, 0, "16/02/2016 12:03:02",
-				0, 0, "0");
+				0, 0, null);
 		userChallengeService.createUserChallenge(userChallenge);
 		return challenge;
 	}
@@ -46,10 +46,11 @@ public class ChallengesController {
 	@RequestMapping(value="/send",method=RequestMethod.POST)
 	@ResponseBody
 	public UserChallenge sendChallenge(@RequestParam(value="ChallengeID") int ChallengeID,@RequestParam(value="FacebookUserIDs") String facebookUserIDs){
-		UserChallenge userChallenge= new UserChallenge(challengeService.getChallengeByID(ChallengeID), UserMock.getMe(), UserMock.getRandomUser(),
-				null, 0, "16/02/2016 12:03:02",
-				0, 0, "0");
+		Challenge challenge=challengeService.getChallengeByID(ChallengeID);
+		UserChallenge userChallenge= new UserChallenge(challenge, UserMock.getMe(), UserMock.getRandomUser(),null, 0, "16/02/2016 12:03:02",0, 0, "0");
 		userChallengeService.createUserChallenge(userChallenge);
+		challenge.plusPending();
+		challengeService.update(challenge);
 		return userChallenge;
 	}
 
