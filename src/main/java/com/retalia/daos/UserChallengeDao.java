@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.retalia.models.Challenge;
 import com.retalia.models.UserChallenge;
 
 @Repository("userchallengeDao")
@@ -41,5 +42,11 @@ public class UserChallengeDao extends GenericDao{
 		}
 		return (List<UserChallenge>) this.executeQuery(sql);
 	}
+
+	public List<UserChallenge> getUserChallengesByChallengeIDAndStatus(int challengeID, int status) {
+		String sql= "FROM UserChallenge where id_challenge="+challengeID+" and status="+status;
+		return (List<UserChallenge>) this.executeQuery(sql);
+	}
+
 
 }

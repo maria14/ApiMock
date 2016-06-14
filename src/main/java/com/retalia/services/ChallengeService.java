@@ -1,5 +1,7 @@
 package com.retalia.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,5 +21,9 @@ public class ChallengeService {
 
 	public Challenge getChallengeByID(int i) {
 		return challengeDao.getChallengeByID(i);
+	}
+
+	public List<Challenge> search(String query) {
+		return challengeDao.search(query);
 	}
 }

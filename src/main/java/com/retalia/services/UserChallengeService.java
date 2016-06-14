@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.retalia.daos.ChallengeDao;
 import com.retalia.daos.UserChallengeDao;
+import com.retalia.models.Challenge;
 import com.retalia.models.UserChallenge;
 
 
@@ -44,6 +45,12 @@ public class UserChallengeService {
 		
 		return userChallengeDao.getUserChallengesChallengesByStatusAndSearchType(userID, status, type);
 	}
+
+	public List<UserChallenge> getUserChallengesByChallengeIDAndStatus(int challengeID, int status) {
+		return userChallengeDao.getUserChallengesByChallengeIDAndStatus(challengeID,status);
+	}
+
+
 	
 	
 

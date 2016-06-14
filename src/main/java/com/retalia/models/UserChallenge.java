@@ -1,6 +1,5 @@
 package com.retalia.models;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,8 +32,9 @@ public class UserChallenge {
 	@JoinColumn(name = "id_owner", nullable = false)
     private User Owner;
 	
-	/*
-    private Multimedia Multimedia;*/
+	@ManyToOne
+	@JoinColumn(name = "id_multimedia", nullable = true)
+    private Multimedia Multimedia;
 	
 	@Column(name="status", nullable=true, length=11)
     private int  Status;
@@ -59,7 +59,7 @@ public class UserChallenge {
 		Challenge = challenge;
 		Sender = sender;
 		Owner = owner;
-		//Multimedia = multimedia;
+		Multimedia = multimedia;
 		Status = status;
 		SendDate = sendDate;
 		Likes = likes;
@@ -121,7 +121,7 @@ public class UserChallenge {
 
 
 
-	/*public Multimedia getMultimedia() {
+	public Multimedia getMultimedia() {
 		return Multimedia;
 	}
 
@@ -129,7 +129,7 @@ public class UserChallenge {
 
 	public void setMultimedia(Multimedia multimedia) {
 		Multimedia = multimedia;
-	}*/
+	}
 
 
 

@@ -7,7 +7,7 @@ import com.retalia.models.User;
 public class MultimediaMock {
 	
 	public static Multimedia getMultimedia(User owner){
-		return new Multimedia(String.valueOf(App.getNumMultimedia()), "https://www.youtube.com/watch?v=OJ2WCy1C494", "14",".mp4",0,owner);
+		return new Multimedia("https://www.youtube.com/watch?v=OJ2WCy1C494", "14",".mp4",0,owner);
 	}
 
 }

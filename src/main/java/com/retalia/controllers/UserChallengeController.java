@@ -14,11 +14,14 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.retalia.App;
+import com.retalia.mocks.MultimediaMock;
+import com.retalia.models.Multimedia;
 import com.retalia.models.UserChallenge;
 import com.retalia.models.methods.LoginModel;
 import com.retalia.services.UserChallengeService;
 import com.retalia.types.SearchType;
 import com.retalia.types.StatusType;
+import com.retalia.services.MultimediaService;
 
 @Controller
 @RequestMapping("/userschallenges")
@@ -26,6 +29,9 @@ public class UserChallengeController {
 	
 	@Autowired
 	private UserChallengeService userChallengeService;
+	
+	@Autowired
+	private MultimediaService multimediaService;
 	
 	
 	@RequestMapping(value="/filter",method=RequestMethod.GET,produces=MediaType.APPLICATION_JSON_VALUE)
@@ -71,14 +77,20 @@ public class UserChallengeController {
 	@RequestMapping(value="/reply",method=RequestMethod.POST)
 	@ResponseBody
 	public void replyUserChallenge(@RequestParam(value="UserChallengeID")final int userChallengeID,@RequestParam(value="Video") final MultipartFile video){
-		App.addVideo(userChallengeID);
-		App.changeStatus(userChallengeID, 1);
+		UserChallenge userChallenge= userChallengeService.getUserChallengeByID(userChallengeID);
+		Multimedia multimedia= MultimediaMock.getMultimedia(userChallenge.getOwner());
+		
+		multimediaService.createMultimedia(multimedia);
+		
+		userChallenge.setStatus(1);
+		userChallenge.setMultimedia(multimedia);
+		userChallengeService.updateUserChallenge(userChallenge);
 	}
 	
 	@RequestMapping(value="/challenges/{challengeID}",method=RequestMethod.GET,produces=MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public List<UserChallenge> getUserChallengesByChallengeIDAndStatus( @PathVariable int challengeID, @RequestParam(value="Status")final String status,@RequestParam(value="PageNumber")final int pageNumber ){
-		return App.getUserChallengesByChallengeIDAndStatus(challengeID,StatusType.get(status).getCod());
+		return userChallengeService.getUserChallengesByChallengeIDAndStatus(challengeID,StatusType.get(status).getCod());
 	}
 	
 	

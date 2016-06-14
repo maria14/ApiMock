@@ -1,24 +1,51 @@
 package com.retalia.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
 
-
+@Entity
+@Table(name="multimedia")
 public class Multimedia  {
-	public String ID ;
-  public String Link ;
-  public String Duration;
-  public String Format;
-  public int Type ;
-  public User Owner;
+	@Id
+	@GenericGenerator(name = "ID", strategy = "increment")
+	@GeneratedValue(generator = "ID")
+	@Column(name="ID", nullable=false, length=11)
+	public int ID ;
+	
+	@Column(name="Link", nullable=false, length=11)
+	public String Link ;
+	
+	@Column(name="Duration", nullable=false, length=11)
+	public String Duration;
+	
+	@Column(name="Format", nullable=true, length=11)
+	public String Format;
+	
+	@Column(name="Type", nullable=true, length=11)
+	public int Type ;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_owner", nullable = false)
+	public User Owner;
 
-public Multimedia(String iD, String link, String duration,String format,
+public Multimedia (String link, String duration,String format,
 		int type, User owner) {
-	ID = iD;
+
 	Link = link;
 	Duration = duration;
 	Format=format;
 	Type = type;
 	Owner = owner;
+}
+public Multimedia(){
+	super();
 }
 
 public String getFormat() {
@@ -29,11 +56,11 @@ public void setFormat(String format) {
 	Format = format;
 }
 
-public String getID() {
+public int getID() {
 	return ID;
 }
 
-public void setID(String iD) {
+public void setID(int iD) {
 	ID = iD;
 }
 
